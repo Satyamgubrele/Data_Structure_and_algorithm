@@ -1,0 +1,59 @@
+#include<stdio.h>
+typedef struct abc
+{
+int info;
+struct abc *next;
+}node;
+node *f=NULL,*r,*b;
+node *createnode()
+{
+b=(node *)malloc(sizeof(node));
+printf("Enter the data:");
+scanf("%d",&b->info);
+b->next=NULL;
+return b;
+}
+void insert(node *c)
+{
+if(f==NULL)
+f=c;
+else
+r->next=c;
+r=c;
+}
+void display()
+{
+node *x=f;
+while(x!=NULL)
+{
+printf("%d ",x->info);
+x=x->next;
+}
+}
+
+void main()
+{
+node *a;
+int choice;
+char enter='y';
+clrscr();
+do
+{
+//a=createnode();
+printf("Enter the choice:\n 1.insertion from Ending \n2.insertion from Beginning");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1: a=createnode();
+	insert(a);
+	break;
+}
+printf("Continue yes/no:");
+fflush(stdin);
+enter=getchar();
+}while(enter=='y');
+
+display();
+free(b);
+getch();
+}
