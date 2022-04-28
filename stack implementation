@@ -1,0 +1,63 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define size 10
+
+void push(int stack[],int *top,int item){
+*top=(*top)+1;
+stack[*top]=item;
+}
+
+int pop(int stack[],int *top){
+int i;
+i=stack[*top];
+*top = (*top) - 1;
+return i;
+}
+int peak(int stack[],int top){
+return (stack[top]);
+}
+
+void main(){
+int top = -1,item;
+int stack[size],choice;
+
+
+printf("\npress  1 for push\n press 2for pop\npress 3 for peak \npress any to exit\n ");
+while(1){
+printf("\n enter choice : ");
+scanf("%d",&choice);
+switch(choice){
+case 1:if(top == size - 1){
+printf("\n overflow");break;}
+else
+{ printf("\nenter element :");
+  scanf("%d",&item);
+  push(stack,&top,item);
+  break;
+  }
+case 2:if(top == -1){
+printf("\nunderflow");break;}
+else
+{
+item=pop(stack,&top);
+printf("\n %d is  poped from stack",item);
+}break;
+case 3:if(top == -1)
+{printf("\nunder flow");break;}
+else
+{item=peak(stack,top);
+printf("\n peak item %d",item);break;}
+default:exit(0);
+} }
+getch();
+}
+
