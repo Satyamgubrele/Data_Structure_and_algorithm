@@ -1,0 +1,30 @@
+#include<stdio.h>
+void main(){
+    int a[100],n,i,item,beg,mid,end;
+    printf("enter the size of array");
+    scanf("%d",&n);
+    printf("enter the element of array");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("item");
+    scanf("%d",&item);
+    beg=0;
+    end=n-1;
+    mid=(beg+end)/2;
+    while((a[mid]!=item)&&(beg<=end))
+    {
+        if(a[mid]>item)
+            end=mid-1;
+        else
+                beg=mid+1;
+                mid=(end+beg)/2;
+    }
+    if(a[mid]==item){
+        printf("item found on %d location",mid);
+
+    }
+    else
+    printf("item not found");
+}
