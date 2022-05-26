@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void insertatbeg(struct node **head,int item);
+struct node{
+int info;
+struct node *next;
+};
+
+void main()
+{
+struct node *head=NULL;
+int choice,item;
+printf("enter choice");
+scanf("%d",&choice);
+while(1){
+switch(choice){
+case 1: insertatbeg(&head,item);
+case 2: exit(0);
+}}}
+void insertatbeg(struct node **head,int item)
+{
+struct node *ptr;
+scanf("%d",&item);
+//struct node *ptr;
+ptr=(struct node*)malloc(sizeof(struct node));
+if(*head==NULL){
+*head=ptr;
+ptr->next=NULL;
+}
+else{
+ptr->info=item;
+ptr->next=(*head);
+*head=ptr;
+}
+}
